@@ -33,32 +33,32 @@ driver.get(urlpage)
 # execute script to scroll down the page
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 # sleep for 30s
-print("see you in 30s")
-time.sleep(30)
-print("30s passed")
+print("see you in 5s")
+time.sleep(5)
+print("5s passed")
 
 # find elements by xpath
 results = driver.find_elements_by_xpath("//*[@id='main']/table")
 print('Number of results', len(results))
 
+df_list = pd.read_html(results[0].get_attribute('outerHTML'))
+df = df_list[-1]
+print(df)
+df.to_csv('my_data.csv')
+
 # create empty array to store data
 data = []
 # loop over results
-for result in results:
-    product_name = result.text
-    link = result.find_element_by_tag_name('a')
-    product_link = link.get_attribute("href")
-    # append dict to array
-    data.append({"product" : product_name, "link" : product_link})
+# for result in results:
+#     product_name = result.text
+#     link = result.find_element_by_tag_name('a')
+#     product_link = link.get_attribute("href")
+#     # append dict to array
+#     data.append({"product" : product_name, "link" : product_link})
 
 # close driver 
 driver.quit()
-# save to pandas dataframe
-df = pd.DataFrame(data)
-print(df)
 
-# write to csv
-df.to_csv('results.csv')
 
 
 
