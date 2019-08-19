@@ -25,8 +25,14 @@ example:
 
 
 """
+
+# TODO arrange output (no col and row index) 
+# TODO csv name add date
+# TODO add dates to sleep
+# TODO clean code and separate in functions
+# TODO specify ddependencies
+
 #https://towardsdatascience.com/data-science-skills-web-scraping-javascript-using-python-97a29738353f
-# import libraries
 import urllib.request
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -56,17 +62,10 @@ print('Number of results', len(results))
 df_list = pd.read_html(results[0].get_attribute('outerHTML'))
 df = df_list[-1]
 print(df)
-df.to_csv('my_data.csv')
-
-# create empty array to store data
-data = []
-# loop over results
-# for result in results:
-#     product_name = result.text
-#     link = result.find_element_by_tag_name('a')
-#     product_link = link.get_attribute("href")
-#     # append dict to array
-#     data.append({"product" : product_name, "link" : product_link})
+df.to_csv('trading_unit_changed_stocks.csv')
 
 # close driver 
-driver.quit()        
+driver.quit()    
+
+#if __name__ == "__main__":
+        
