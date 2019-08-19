@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# https://stackoverflow.com/a/25735801/9876427
 OPTIONS=""
 while [[ $# -gt 0 ]]
 do
@@ -26,4 +26,4 @@ esac
 shift
 done
 
-python3 ./src/$ALGO.py $EX_PATH $OPTIONS
+python ./fetch.py
