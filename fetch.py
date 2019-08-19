@@ -34,7 +34,6 @@ example:
 
 #https://towardsdatascience.com/data-science-skills-web-scraping-javascript-using-python-97a29738353f
 import urllib.request
-from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
 import pandas as pd
