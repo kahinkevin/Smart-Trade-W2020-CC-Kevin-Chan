@@ -1,29 +1,10 @@
 #!/bin/bash
+# https://stackoverflow.com/a/42907421/9876427 for installing pip et virtualenv
 # https://stackoverflow.com/a/25735801/9876427
-OPTIONS=""
-while [[ $# -gt 0 ]]
-do
-key="$1"
 
-case $key in
-    -a)
-    ALGO="$2"
-    shift
-    ;;
-    -e)
-    EX_PATH="$2 $3"
-    shift
-    shift
-    ;;
-    -p|-t)
-    OPTIONS="${OPTIONS}${1} "
-    ;;
-    *)
-        echo "Argument inconnu: ${1}"
-        exit
-    ;;
-esac
-shift
-done
+#python -m venv .
+virtualenv -q -p . $1
+source $1/bin/activate
+pip install -r requirements.txt
 
 python ./fetch.py
