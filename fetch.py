@@ -31,6 +31,8 @@ example:
 # TODO add dates to sleep
 # TODO clean code and separate in functions
 # TODO specify ddependencies
+import os
+os.system('py && pip install selenium')
 
 #https://towardsdatascience.com/data-science-skills-web-scraping-javascript-using-python-97a29738353f
 import urllib.request
